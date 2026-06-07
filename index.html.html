@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitoria Cardoso | Social Media</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --black: #141414;
+    --gray: #8A8A8A;
+    --light: #EDEAE3;
+    --accent: #C9B99A;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(247,244,239,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  nav.scrolled { border-color: var(--light); }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--gray);
+    font-weight: 300;
+    max-width: 380px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background 0.2s, transform 0.2s;
+    width: fit-content;
+  }
+  .btn-primary:hover { background: #333; transform: translateY(-2px); }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(3px); }
+
+  .hero-right {
+    background: var(--light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phone-mockup {
+    width: 240px;
+    background: var(--white);
+    border-radius: 36px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-bar {
+    background: var(--white);
+    padding: 12px 16px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  .phone-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  }
+
+  .phone-username { font-size: 11px; font-weight: 500; }
+  .phone-handle { font-size: 10px; color: var(--gray); }
+
+  .phone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .phone-cell { aspect-ratio: 1; background: var(--light); }
+  .c1 { background: #D4C5B0; }
+  .c2 { background: #B8A898; }
+  .c3 { background: #C9B8A8; }
+  .c4 { background: #BFB0A0; }
+  .c5 { background: #D0C0AD; }
+  .c6 { background: #C4B4A2; }
+  .c7 { background: #CABAAA; }
+  .c8 { background: #D6C8B8; }
+  .c9 { background: #BBB0A4; }
+
+  .phone-bio {
+    padding: 10px 14px;
+    font-size: 10px;
+    color: var(--gray);
+    line-height: 1.5;
+    border-top: 1px solid #F0F0F0;
+  }
+
+  .hero-deco {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.15;
+    top: -80px; right: -80px;
+  }
+
+  .hero-deco2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--black);
+    opacity: 0.05;
+    bottom: 40px; left: 40px;
+  }
+
+  /* SEÇÕES */
+  section { padding: 7rem 4rem; }
+
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SOBRE */
+  #sobre {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .sobre-foto {
+    aspect-ratio: 4/5;
+    background: var(--light);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 6rem;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .sobre-text p {
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* Frase de início de jornada */
+  .inicio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cream);
+    border: 1px solid var(--light);
+    border-radius: 100px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+  }
+
+  .inicio-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--light);
+    border-radius: 100px;
+    color: var(--gray);
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--cream); }
+
+  .portfolio-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .portfolio-intro {
+    color: var(--gray);
+    font-weight: 300;
+    max-width: 500px;
+    margin-top: 0.75rem;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .portfolio-card:hover { transform: translateY(-6px); }
+
+  .portfolio-card:first-child { grid-column: span 2; }
+
+  .card-img {
+    aspect-ratio: 16/9;
+    background: var(--light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-card:first-child .card-img { aspect-ratio: 16/8; }
+
+  .card-img-bg { position: absolute; inset: 0; }
+
+  .bg-1 { background: linear-gradient(135deg, #E8DDD0 0%, #C9B99A 100%); }
+  .bg-2 { background: linear-gradient(135deg, #D0D8E0 0%, #A0B0BF 100%); }
+  .bg-3 { background: linear-gradient(135deg, #D8E0D0 0%, #A8C0A0 100%); }
+
+  .card-label {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    z-index: 1;
+  }
+
+  .fake-posts {
+    display: flex;
+    gap: 8px;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .fake-post { flex: 1; aspect-ratio: 1; border-radius: 6px; }
+  .fp1 { background: #D4C5B0; }
+  .fp2 { background: #C0B0A0; }
+  .fp3 { background: #CABAAA; }
+  .fp4 { background: #B8A898; }
+
+  .card-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .card-client { font-size: 0.75rem; color: var(--gray); letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+  .card-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.75rem; }
+  .card-desc { font-size: 0.85rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+
+  /* CONTATO */
+  #contato {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  #contato .section-title { color: var(--white); }
+  #contato .section-tag { color: var(--accent); }
+
+  #contato p {
+    color: rgba(255,255,255,0.45);
+    max-width: 460px;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 0.9rem 1.75rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+  }
+
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer span { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    section { padding: 5rem 2rem; }
+    #sobre { grid-template-columns: 1fr; gap: 2rem; padding: 5rem 2rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-card:first-child { grid-column: auto; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .contact-links { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Vitoria Cardoso</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <span class="hero-tag">✦ Social Media</span>
+    <h1 class="hero-title">
+      Presença que<br>
+      <em>atrai</em> e<br>
+      engaja.
+    </h1>
+    <p class="hero-subtitle">
+      Crio conteúdos para Instagram que refletem a identidade da sua marca e criam conexão real com as pessoas certas.
+    </p>
+    <a href="#portfolio" class="btn-primary">
+      Ver portfólio
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-deco"></div>
+    <div class="hero-deco2"></div>
+    <div class="phone-mockup">
+      <div class="phone-bar">
+        <div class="phone-avatar"></div>
+        <div>
+          <div class="phone-username">vitoria.cardoso</div>
+          <div class="phone-handle">Social Media</div>
+        </div>
+      </div>
+      <div class="phone-grid">
+        <div class="phone-cell c1"></div>
+        <div class="phone-cell c2"></div>
+        <div class="phone-cell c3"></div>
+        <div class="phone-cell c4"></div>
+        <div class="phone-cell c5"></div>
+        <div class="phone-cell c6"></div>
+        <div class="phone-cell c7"></div>
+        <div class="phone-cell c8"></div>
+        <div class="phone-cell c9"></div>
+      </div>
+      <div class="phone-bio">
+        Criando conteúdo com propósito e estética ✦
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-foto fade-up">V</div>
+  <div class="sobre-text fade-up" style="transition-delay:0.15s">
+    <span class="section-tag">Sobre mim</span>
+    <h2 class="section-title">Começo com <em style="font-style:italic">intenção</em>.</h2>
+
+    <div class="inicio-badge">
+      <div class="inicio-dot"></div>
+      Iniciando minha jornada no mercado
+    </div>
+
+    <p>
+      Olá! Sou Vitoria Cardoso, estou começando minha trajetória como Social Media com muita vontade de aprender e criar. Acredito que todo início carrega uma energia única — e é essa energia que coloco em cada projeto.
+    </p>
+    <p>
+      Meu foco está em entender a essência de cada marca e traduzi-la em conteúdo visual e texto que gere identificação real no Instagram.
+    </p>
+    <div class="skills-list">
+      <span class="skill-tag">Criação de conteúdo</span>
+      <span class="skill-tag">Planejamento de feed</span>
+      <span class="skill-tag">Edição de imagem</span>
+      <span class="skill-tag">Gestão de comunidade</span>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header fade-up">
+    <span class="section-tag">Portfólio</span>
+    <h2 class="section-title">Primeiros trabalhos.</h2>
+    <p class="portfolio-intro">
+      Projetos em desenvolvimento — cada um deles representa um aprendizado e o começo de algo novo. A jornada está apenas começando.
+    </p>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card fade-up">
+      <div class="card-img">
+        <div class="card-img-bg bg-1"></div>
+        <div class="fake-posts">
+          <div class="fake-post fp1"></div>
+          <div class="fake-post fp2"></div>
+          <div class="fake-post fp3"></div>
+          <div class="fake-post fp4"></div>
+        </div>
+        <span class="card-label">Feed</span>
+      </div>
+      <div class="card-body">
+        <p class="card-client">Projeto pessoal</p>
+        <h3 class="card-title">Planejamento de feed para marca de moda</h3>
+        <p class="card-desc">Curadoria visual com paleta coesa e identidade bem definida para um perfil fictício de moda.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-card fade-up" style="transition-delay:0.1s">
+      <div class="card-img">
+        <div class="card-img-bg bg-2"></div>
+        <span class="card-label">Conteúdo</span>
+      </div>
+      <div class="card-body">
+        <p class="card-client">Estudo de caso</p>
+        <h3 class="card-title">Identidade visual para perfil de gastronomia</h3>
+        <p class="card-desc">Criação de posts e layout de feed com foco em estética e apetite visual.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-card fade-up" style="transition-delay:0.15s">
+      <div class="card-img">
+        <div class="card-img-bg bg-3"></div>
+        <span class="card-label">Conceito</span>
+      </div>
+      <div class="card-body">
+        <p class="card-client">Trabalho conceitual</p>
+        <h3 class="card-title">Grade de conteúdo para marca de bem-estar</h3>
+        <p class="card-desc">Proposta de calendário editorial com temas, formatos e tom de voz definidos.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <span class="section-tag">Contato</span>
+  <h2 class="section-title">Vamos conversar?</h2>
+  <p>
+    Estou aberta a primeiras oportunidades, colaborações e trocas. Se você acredita em quem está começando, adoraria ouvir você.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:vitoria@email.com" class="btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      vitoria@email.com
+    </a>
+    <a href="https://instagram.com/vitoria.cardoso" target="_blank" class="btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @vitoria.cardoso
+    </a>
+    <a href="https://wa.me/55" target="_blank" class="btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Vitoria Cardoso</span>
+  <span>Social Media</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
